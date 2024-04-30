@@ -65,7 +65,7 @@ public class Snake : MonoBehaviour
 
             // Set the next update time based on the speed
             nextUpdate = Time.time + (1f / (speed * speedMultiplier));
-        }
+         
 
     }
 
