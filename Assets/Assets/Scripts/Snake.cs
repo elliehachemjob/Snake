@@ -6,7 +6,13 @@ public class Snake : MonoBehaviour
 {
 
     public Vector2 _direction = Vector2.right;
+    private List<Transform> segments = new List<Transform>();
 
+
+    private void Start()
+    {
+        ResetState();
+    }
     private void Update()
     {
         {
@@ -68,6 +74,22 @@ public class Snake : MonoBehaviour
          
 
     }
+
+        public void Grow()
+        {
+            Transform segment = Instantiate(segmentPrefab);
+            segment.position = segments[segments.Count - 1].position;
+            segments.Add(segment);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Food"))
+            {
+                Grow();
+            }
+           
+        }
 
    /*  public Transform segmentPrefab;
     public Vector2Int direction = Vector2Int.right;
