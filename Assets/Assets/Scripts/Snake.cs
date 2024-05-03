@@ -40,6 +40,14 @@ public class Snake : MonoBehaviour
 
         {
 
+            // Set each segment's position to be the same as the one it follows. We
+            // must do this in reverse order so the position is set to the previous
+            // position, otherwise they will all be stacked on top of each other.
+            for (int i = segments.Count - 1; i > 0; i--)
+            {
+                segments[i].position = segments[i - 1].position;
+            }
+
             // Move the snake in the direction it is facing
             // Round the values to ensure it aligns to the grid
             int x = Mathf.RoundToInt(transform.position.x) + direction.x;
