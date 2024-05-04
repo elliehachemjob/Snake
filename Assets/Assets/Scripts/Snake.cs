@@ -7,6 +7,7 @@ public class Snake : MonoBehaviour
 
     public Vector2 _direction = Vector2.right;
     private List<Transform> segments = new List<Transform>();
+    public int initialSize = 4;
 
 
     private void Start()
@@ -90,14 +91,51 @@ public class Snake : MonoBehaviour
             segments.Add(segment);
         }
 
+
+        public void ResetState()
+        {
+            direction = Vector2Int.right;
+            transform.position = Vector3.zero;
+
+            // Start at 1 to skip destroying the head
+            for (int i = 1; i < segments.Count; i++)
+            {
+                Destroy(segments[i].gameObject);
+            }
+
+            // Clear the list but add back this as the head
+            segments.Clear();
+            segments.Add(transform);
+
+            // -1 since the head is already in the list
+            for (int i = 0; i < initialSize - 1; i++)
+            {
+                Grow();
+            }
+        }
+
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Food"))
             {
                 Grow();
-            }
-           
-        }
+                    else if (other.gameObject.CompareTag("Obstacle"))
+                {
+                    ResetState();
+                }
+                else if (other.gameObject.CompareTag("Wall"))
+                {
+                    if (moveThroughWalls)
+                    {
+                        Traverse(other.transform);
+                    }
+                    else
+                    {
+                        ResetState();
+                    }
+
+                }
 
    /*  public Transform segmentPrefab;
     public Vector2Int direction = Vector2Int.right;

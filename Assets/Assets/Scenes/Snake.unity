@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 962302027}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Obsticale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 1431457603}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Obsticale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1487117392}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Obsticale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 8791851091651076915}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Obsticale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
